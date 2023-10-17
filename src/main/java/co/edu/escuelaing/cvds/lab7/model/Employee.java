@@ -1,7 +1,9 @@
 package co.edu.escuelaing.cvds.lab7.model;
 
-
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "EMPLOYEE")
@@ -18,61 +20,68 @@ public class Employee {
     @Column(name = "SALARY")
     private Double salary;
 
-    public Employee(){
+    public Employee() {
 
     }
 
-    
+    public Employee(String first, String last){
+
+        setFirst_name(first);
+        setLast_name(last);
+        
+    }
+    /** 
+     * @param employee_id
+     */
     public void setEmployee_id(String employee_id) {
         this.employee_id = employee_id;
     }
 
-
+    
+    /** 
+     * @param first_name
+     */
     public void setFirst_name(String first_name) {
         this.first_name = first_name;
     }
 
-
+    
+    /** 
+     * @param last_name
+     */
     public void setLast_name(String last_name) {
         this.last_name = last_name;
     }
-
 
     public void setRole(String role) {
         this.role = role;
     }
 
-
     public void setSalary(Double salary) {
         this.salary = salary;
     }
-
 
     public String getEmployee_id() {
         return employee_id;
     }
 
-
     public String getFirst_name() {
         return first_name;
     }
-
 
     public String getLast_name() {
         return last_name;
     }
 
-
     public String getRole() {
         return role;
     }
-
 
     public Double getSalary() {
         return salary;
     }
 
-
+ 
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -122,13 +131,10 @@ public class Employee {
         return true;
     }
 
-
     @Override
     public String toString() {
         return "Employee [employee_id=" + employee_id + ", first_name=" + first_name + ", last_name=" + last_name
                 + ", role=" + role + ", salary=" + salary + "]";
     }
-
-    
 
 }
